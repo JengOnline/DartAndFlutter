@@ -63,10 +63,14 @@ class MyHomePage extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(
                         vertical: 10, horizontal: 15),
                     decoration: BoxDecoration(
-                        border: Border.all(color: Colors.black, width: 2)),
+                        border: Border.all(color: Colors.purple, width: 2)),
                     padding: const EdgeInsets.all(10),
                     child: Text(
                       tx.amount.toString(),
+                      style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Colors.purple),
                     ),
                   ),
                   Column(
