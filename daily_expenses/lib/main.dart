@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:intl/intl.dart';
 import './transaction.dart';
 
@@ -38,6 +39,9 @@ class MyHomePage extends StatelessWidget {
     )
   ];
 
+  final titleContoller = TextEditingController();
+  final amountController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,7 +49,7 @@ class MyHomePage extends StatelessWidget {
         title: const Text('Flutter App'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        //mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           // ignore: sized_box_for_whitespace
@@ -57,6 +61,30 @@ class MyHomePage extends StatelessWidget {
               elevation: 5,
             ),
           ),
+          Card(
+              elevation: 5,
+              child: Container(
+                padding: const EdgeInsets.all(5),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      decoration: const InputDecoration(labelText: 'Title'),
+                      controller: titleContoller,
+                    ),
+                    TextField(
+                      decoration: const InputDecoration(labelText: 'Amount'),
+                      controller: amountController,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(primary: Colors.purple),
+                      child: const Text('Add Transaction'),
+                      onPressed: () {
+                        print(titleContoller.text);
+                      },
+                    )
+                  ],
+                ),
+              )),
           Column(
             children: transactions.map((tx) {
               return Card(
