@@ -22,6 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  MyHomePage({Key? key}) : super(key: key);
   final List<Transaction> transactions = [
     Transaction(
       id: 't1',
@@ -47,6 +48,7 @@ class MyHomePage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
+          // ignore: sized_box_for_whitespace
           Container(
             width: double.infinity,
             child: const Card(

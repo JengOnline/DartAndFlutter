@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import './text_controll.dart';
+import 'text_controll.dart';
 import './text.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -28,7 +28,7 @@ class _MyAppState extends State<MyApp> {
         title: const Text('My First App'),
       ),
       body: Column(
-        children: [text_controll(_changeText), text(_mainText)],
+        children: [TextControll(_changeText), text(_mainText)],
       ),
     ));
   }

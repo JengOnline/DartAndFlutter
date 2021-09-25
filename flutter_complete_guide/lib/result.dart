@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class Result extends StatelessWidget {
   final int resultScore;
   final VoidCallback resetHandler;
-  Result(this.resultScore, this.resetHandler);
+  const Result(this.resultScore, this.resetHandler, {Key? key})
+      : super(key: key);
 
   String get resultPhrase {
     var resultText = 'You did it!';
@@ -27,8 +28,9 @@ class Result extends StatelessWidget {
           Text(resultPhrase,
               style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center),
+          // ignore: deprecated_member_use
           FlatButton(
-            child: Text('Restart Quiz!'),
+            child: const Text('Restart Quiz!'),
             textColor: Colors.blue,
             onPressed: resetHandler,
           ),

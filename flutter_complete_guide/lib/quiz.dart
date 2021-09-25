@@ -6,7 +6,9 @@ class Quiz extends StatelessWidget {
   final List<Map<String, Object>> questions;
   final int questionIndex;
   final Function answerQuestion;
-  Quiz(this.questions, this.answerQuestion, this.questionIndex);
+  const Quiz(this.questions, this.answerQuestion, this.questionIndex,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
