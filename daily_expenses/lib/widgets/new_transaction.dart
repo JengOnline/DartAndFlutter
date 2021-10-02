@@ -8,7 +8,9 @@ class NewTransaction extends StatelessWidget {
 
   void submitData() {
     final enteredTitle = titleController.text;
-    final enteredAmount = double.parse(amountController.text);
+    final enteredAmount = amountController.text.isEmpty
+        ? -1
+        : double.parse(amountController.text);
 
     if (enteredTitle.isEmpty || enteredAmount <= 0) {
       return;
