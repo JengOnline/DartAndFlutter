@@ -50,18 +50,66 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: 'Weekly Froceries',
-    //   amount: 16.53,
-    //   date: DateTime.now(),
-    // )
+    Transaction(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 1,
+      ),
+    ),
+    Transaction(
+      id: 't2',
+      title: 'Weekly Froceries',
+      amount: 16.53,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 2,
+      ),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Food',
+      amount: 20,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 3,
+      ),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Taxi',
+      amount: 10,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 4,
+      ),
+    ),
+    Transaction(
+      id: 't5',
+      title: 'Party',
+      amount: 30,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 5,
+      ),
+    ),
+    Transaction(
+      id: 't6',
+      title: 'Movie',
+      amount: 15,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 6,
+      ),
+    )
   ];
 
   List<Transaction> get _recentTransactions {
