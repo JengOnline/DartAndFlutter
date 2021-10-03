@@ -91,6 +91,16 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     ),
     Transaction(
+      id: 't6',
+      title: 'Movie',
+      amount: 15,
+      date: DateTime.utc(
+        DateTime.now().year,
+        DateTime.now().month,
+        DateTime.now().day - 6,
+      ),
+    ),
+    Transaction(
       id: 't5',
       title: 'Party',
       amount: 30,
@@ -100,17 +110,12 @@ class _MyHomePageState extends State<MyHomePage> {
         DateTime.now().day - 5,
       ),
     ),
-    Transaction(
-      id: 't6',
-      title: 'Movie',
-      amount: 15,
-      date: DateTime.utc(
-        DateTime.now().year,
-        DateTime.now().month,
-        DateTime.now().day - 6,
-      ),
-    )
   ];
+
+  void initState() {
+    super.initState();
+    _sortingTransaction;
+  }
 
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((tx) {
@@ -120,6 +125,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       );
     }).toList();
+  }
+
+  void get _sortingTransaction {
+    return _userTransactions.sort((a, b) => a.id.compareTo(b.id));
   }
 
   void _addNewTransaction(
@@ -133,6 +142,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _userTransactions.add(newTx);
     });
+    _sortingTransaction;
   }
 
   void _startAddNewTransaction(BuildContext ctx) {
