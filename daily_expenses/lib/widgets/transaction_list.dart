@@ -11,33 +11,32 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height / 1.9,
-      child: transactions.isEmpty
-          ? Column(
-              children: <Widget>[
-                Text(
-                  'No transaction added yet!',
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                Container(
-                    height: 200,
-                    child: Image.asset(
-                      'assets/images/waiting.png',
-                      fit: BoxFit.cover,
-                    ))
-              ],
-            )
-          : ListView.builder(
-              itemCount: transactions.length,
-              itemBuilder: (ctx, index) {
-                return TransactionItem(
-                  transaction: transactions[index],
-                  deleteTx: deleteTx,
-                );
-              }),
-    );
+        height: MediaQuery.of(context).size.height / 1.9,
+        child: transactions.isEmpty
+            ? Column(
+                children: <Widget>[
+                  Text(
+                    'No transaction added yet!',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                      height: 200,
+                      child: Image.asset(
+                        'assets/images/waiting.png',
+                        fit: BoxFit.cover,
+                      ))
+                ],
+              )
+            : ListView(
+                children: transactions
+                    .map((tx) => TransactionItem(
+                          key: ValueKey(tx.id),
+                          transaction: tx,
+                          deleteTx: deleteTx,
+                        ))
+                    .toList()));
   }
 }
