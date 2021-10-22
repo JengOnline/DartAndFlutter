@@ -35,7 +35,7 @@ class _NewTransactionState extends State<NewTransaction> {
 
   @override
   void didUpdateWidget(covariant NewTransaction oldWidget) {
-    print('didUpdateWidget');
+    print('didUpdateWidget()');
     super.didUpdateWidget(oldWidget);
   }
 
